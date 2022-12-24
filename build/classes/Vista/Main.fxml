@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MainController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Arquivo">
+            <items>
+                  <Menu mnemonicParsing="false" text="Xerar correo">
+                    <items>
+                      <MenuItem fx:id="pdf" mnemonicParsing="false" onAction="#ExportaPdf" text="Exportar PDF" />
+                        <MenuItem mnemonicParsing="false" onAction="#Imprime" text="Imprimir" />
+                        <MenuItem fx:id="novoMail" mnemonicParsing="false" onAction="#novoMail" text="Novo Correo" />
+                    </items>
+                  </Menu>
+                  <MenuItem fx:id="pecha" mnemonicParsing="false" onAction="#pecha" text="Pechar" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edicion">
+            <items>
+                  <MenuItem fx:id="busca" mnemonicParsing="false" onAction="#busca" text="Buscar" />
+                  <MenuItem fx:id="elimina" mnemonicParsing="false" onAction="#elimina" text="Eliminar" />
+              <MenuItem fx:id="engade" mnemonicParsing="false" onAction="#engade" text="Engadir" />
+                  <MenuItem fx:id="lista" mnemonicParsing="false" onAction="#lista" text="Listar" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Axuda">
+            <items>
+              <MenuItem fx:id="acerca" mnemonicParsing="false" onAction="#acerca" text="Acerca de..." />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <ScrollPane fx:id="pane" BorderPane.alignment="CENTER">
+         <content>
+            <WebView fx:id="web" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

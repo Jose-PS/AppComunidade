@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FormularioController">
+   <center>
+      <ScrollPane fx:id="pane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <WebView fx:id="web" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" />
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <Pane fx:id="paneb" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="busca" layoutX="300.0" layoutY="7.0" mnemonicParsing="false" onAction="#busca" text="Buscar">
+               <graphic>
+                  <ChoiceBox fx:id="opcion" prefWidth="150.0" />
+               </graphic>
+            </Button>
+            <TextField fx:id="param" layoutX="119.0" layoutY="11.0" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
