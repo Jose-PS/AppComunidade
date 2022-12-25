@@ -35,16 +35,13 @@ public class MainFX extends Application {
         
         
         try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainFX.class.getResource("/Vista/Main.fxml"));
-            mainPane=(BorderPane)loader.load();
-            mainPane.setCenter(mainPane);
+            mainPane=FXMLLoader.<BorderPane>load(MainFX.class.getResource("/Vista/Main.fxml"));
             scn=new Scene(mainPane);
             mainStage.setScene(scn);
             mainStage.show();
             
         } catch (IOException e){
-            System.out.println(e.getMessage());
+            System.out.println(e.getCause());
         }
     }
     
@@ -85,7 +82,7 @@ public class MainFX extends Application {
 }
     
     public static void switchPane (Pane stp){
-        mainPane.setCenter(stp);
+        //mainPane.setCenter(stp);
         scn.setRoot(mainPane);
     }
     
