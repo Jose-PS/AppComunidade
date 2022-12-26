@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Vista.MainFX;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -24,17 +26,27 @@ import javafx.scene.web.WebView;
 public class FormularioController implements Initializable {
 
     @FXML
-    private Pane paneb;
+    private TextField apelidos;
     @FXML
-    private Button busca;
+    private TextField nome;
     @FXML
-    private ChoiceBox<?> opcion;
+    private TextField dni;
     @FXML
-    private TextField param;
+    private TextField aldea;
     @FXML
-    private ScrollPane pane;
+    private TextField rua;
     @FXML
-    private WebView web;
+    private TextField telefono;
+    @FXML
+    private Label tipoc;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField numero;
+    @FXML
+    private TextField lectorQR;
+    @FXML
+    private WebView mostraLectura;
 
     /**
      * Initializes the controller class.
@@ -45,7 +57,17 @@ public class FormularioController implements Initializable {
     }    
 
     @FXML
-    private void busca(ActionEvent event) {
+    private void atras(ActionEvent event) {
+        MainFX.getBack();
+    }
+    
+    @FXML
+    private void xeraCorreo(ActionEvent event){
+        
+    }
+
+    @FXML
+    private void altaComuneiro(ActionEvent event) {
     }
     
 }

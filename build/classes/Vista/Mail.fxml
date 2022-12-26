@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FormularioController">
+   <children>
+      <Button layoutX="117.0" layoutY="481.0" mnemonicParsing="false" onAction="#atras" text="Cancelar" />
+      <Button layoutX="373.0" layoutY="481.0" mnemonicParsing="false" onAction="#xeraCorreo" text="Xerar" />
+      <ScrollPane layoutX="-7.0" layoutY="-8.0" prefHeight="476.0" prefWidth="563.0">
+         <content>
+            <TextArea fx:id="txtMail" prefHeight="474.0" prefWidth="563.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>

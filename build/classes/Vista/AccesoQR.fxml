@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FormularioController">
+   <children>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="550.0" prefWidth="550.0">
+        <items>
+          
+      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0">
+         <children>
+            <WebView fx:id="mostraLectura" minHeight="-1.0" minWidth="-1.0" prefHeight="400.0" prefWidth="550.0" />
+         </children>
+      </Pane>
+      <Pane prefHeight="50.0" prefWidth="550.0">
+         <children>
+            <TextField fx:id="lectorQR" layoutX="95.0" layoutY="46.0" promptText="Lector QR" />
+            <Button layoutX="367.0" layoutY="46.0" mnemonicParsing="false" onAction="#atras" text="Cancelar" />
+         </children>
+      </Pane>
+   </items>
+        
+      </SplitPane>
+   </children>
+</Pane>

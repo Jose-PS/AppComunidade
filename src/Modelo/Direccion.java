@@ -10,17 +10,16 @@ package Modelo;
  */
 public class Direccion {
     private String rua;
-    private String provincia;
-    private String localidade;
+    private String provincia="Pontevedra";
+    private String localidade="Cangas";
+    private String Aldea;
     private int numero;
-    private int cp;
+    private String cp="36945";
 
-    public Direccion(String rua, String provincia, String localidade, int numero, int cp) {
+    public Direccion(String rua, String Aldea, int numero) {
         this.rua = rua;
-        this.provincia = provincia;
-        this.localidade = localidade;
+        this.Aldea = Aldea;
         this.numero = numero;
-        this.cp = cp;
     }
 
     public String getRua() {
@@ -47,6 +46,14 @@ public class Direccion {
         this.localidade = localidade;
     }
 
+    public String getAldea() {
+        return Aldea;
+    }
+
+    public void setAldea(String Aldea) {
+        this.Aldea = Aldea;
+    }
+
     public int getNumero() {
         return numero;
     }
@@ -55,13 +62,15 @@ public class Direccion {
         this.numero = numero;
     }
 
-    public int getCp() {
+    public String getCp() {
         return cp;
     }
 
-    public void setCp(int cp) {
+    public void setCp(String cp) {
         this.cp = cp;
     }
+
+    
     
     
 }

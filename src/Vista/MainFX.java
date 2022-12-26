@@ -31,6 +31,7 @@ public class MainFX extends Application {
     private static Stage mainStage;
     private static SplitPane mainPane;
     private static Scene scn;
+    private static Pane stPane;
 
     @Override
     public void start(Stage mainStage) {
@@ -43,9 +44,9 @@ public class MainFX extends Application {
             loader.setLocation(MainFX.class.getResource("/Vista/MainVista.fxml"));
             Image img1=new Image(new FileInputStream(getRutaRecurso("/src/Vista/forest.png")));
             ImageView imgv=new ImageView(img1);
-            Pane stpane=new Pane(imgv);
+            stPane=new Pane(imgv);
             mainPane=(SplitPane)loader.load();
-            mainPane.getItems().set(1, stpane);
+            mainPane.getItems().set(1, stPane);
             scn=new Scene(mainPane);
             mainStage.setScene(scn);
             mainStage.show();
@@ -96,6 +97,10 @@ public class MainFX extends Application {
     public static void switchPane (Pane stp){
         mainPane.getItems().set(1, stp);
         scn.setRoot(mainPane);
+    }
+    
+    public static void getBack(){
+        mainPane.getItems().set(1, stPane);
     }
     public static void main(String[] args) {
         launch(args);

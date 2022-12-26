@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.FormularioController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.FormularioController">
    <children>
       <TextField fx:id="apelidos" layoutX="75.0" layoutY="155.0" promptText="Apelidos" />
       <TextField fx:id="nome" layoutX="75.0" layoutY="55.0" promptText="Nome" />
@@ -14,14 +14,18 @@
       <Label layoutX="130.0" layoutY="35.0" text="Nome " />
       <Label layoutX="121.0" layoutY="135.0" text="Apelidos" />
       <Label layoutX="134.0" layoutY="233.0" text="DNI" />
-      <TextField fx:id="iban" layoutX="325.0" layoutY="55.0" promptText="Aldea" />
-      <TextField fx:id="saldo" layoutX="325.0" layoutY="155.0" promptText="Rua" />
-      <TextField fx:id="interes" layoutX="80.0" layoutY="354.0" promptText="Telefono" />
+      <TextField fx:id="aldea" layoutX="325.0" layoutY="55.0" promptText="Aldea" />
+      <TextField fx:id="rua" layoutX="325.0" layoutY="155.0" promptText="Rua" />
+      <TextField fx:id="telefono" layoutX="80.0" layoutY="354.0" promptText="Telefono" />
       <Button layoutX="117.0" layoutY="481.0" mnemonicParsing="false" onAction="#atras" text="Cancelar" />
-      <Button fx:id="aforro" layoutX="373.0" layoutY="481.0" mnemonicParsing="false" onAction="#creaConta" text="Gardar" />
+      <Button layoutX="373.0" layoutY="481.0" mnemonicParsing="false" onAction="#altaComuneiro" text="Gardar" />
       <Label layoutX="384.0" layoutY="35.0" text="Aldea" />
       <Label layoutX="380.0" layoutY="135.0" text="Rua" />
       <Label layoutX="118.0" layoutY="334.0" text="Telefono" />
-      <Label fx:id="tipoc" layoutX="241.0" layoutY="15.0" text="Conta Aforro" />
+      <Label layoutX="241.0" layoutY="15.0" text="Alta Comuneiro" />
+      <Label layoutX="381.0" layoutY="332.0" text="E-Mail" />
+      <TextField fx:id="email" layoutX="326.0" layoutY="352.0" promptText="E-Mail" />
+      <Label layoutX="381.0" layoutY="233.0" text="Numero" />
+      <TextField fx:id="numero" layoutX="326.0" layoutY="253.0" promptText="Numero" />
    </children>
 </Pane>
