@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.MainController">
+   <items>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="250.0">
+         <children>
+            <ChoiceBox fx:id="tipo" layoutX="50.0" layoutY="234.0" prefWidth="150.0" />
+            <Button layoutX="50.0" layoutY="39.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#alta" prefWidth="150.0" text="Alta Comuneiro" />
+            <Button layoutX="50.0" layoutY="307.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#buscaComuneiros" prefWidth="150.0" text="Buscar Comuneiros" />
+            <Button layoutX="50.0" layoutY="79.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#novoMail" prefWidth="150.0" text="Crear Correo" />
+            <Button layoutX="50.0" layoutY="345.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#listaComuneiros" prefWidth="150.0" text="Listar Comuneiros" />
+            <Button layoutX="50.0" layoutY="392.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#exportaPdf" prefWidth="150.0" text="Exportar Listado" />
+            <Button layoutX="50.0" layoutY="500.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sair" prefWidth="150.0" text="Sair" />
+            <Button layoutX="50.0" layoutY="127.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#accesoQR" prefWidth="150.0" text="Acceso QR" />
+            <TextField fx:id="busca" layoutX="51.0" layoutY="274.0" />
+         </children>
+      </Pane>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" />
+   </items>
+</SplitPane>

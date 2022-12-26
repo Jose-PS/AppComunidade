@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.FormularioController">
+   <children>
+      <TextField fx:id="apelidos" layoutX="75.0" layoutY="155.0" promptText="Apelidos" />
+      <TextField fx:id="nome" layoutX="75.0" layoutY="55.0" promptText="Nome" />
+      <TextField fx:id="dni" layoutX="75.0" layoutY="255.0" promptText="DNI" />
+      <Label layoutX="130.0" layoutY="35.0" text="Nome " />
+      <Label layoutX="121.0" layoutY="135.0" text="Apelidos" />
+      <Label layoutX="134.0" layoutY="233.0" text="DNI" />
+      <TextField fx:id="iban" layoutX="325.0" layoutY="55.0" promptText="Aldea" />
+      <TextField fx:id="saldo" layoutX="325.0" layoutY="155.0" promptText="Rua" />
+      <TextField fx:id="interes" layoutX="80.0" layoutY="354.0" promptText="Telefono" />
+      <Button layoutX="117.0" layoutY="481.0" mnemonicParsing="false" onAction="#atras" text="Cancelar" />
+      <Button fx:id="aforro" layoutX="373.0" layoutY="481.0" mnemonicParsing="false" onAction="#creaConta" text="Gardar" />
+      <Label layoutX="384.0" layoutY="35.0" text="Aldea" />
+      <Label layoutX="380.0" layoutY="135.0" text="Rua" />
+      <Label layoutX="118.0" layoutY="334.0" text="Telefono" />
+      <Label fx:id="tipoc" layoutX="241.0" layoutY="15.0" text="Conta Aforro" />
+   </children>
+</Pane>

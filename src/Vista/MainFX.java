@@ -1,21 +1,25 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 package Vista;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.security.CodeSource;
 import java.security.ProtectionDomain;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.SplitPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -25,23 +29,31 @@ import javafx.stage.Stage;
  */
 public class MainFX extends Application {
     private static Stage mainStage;
-    private static BorderPane mainPane;
+    private static SplitPane mainPane;
     private static Scene scn;
 
     @Override
     public void start(Stage mainStage) {
         this.mainStage=mainStage;
-        this.mainStage.setTitle("Comunidade de Montes do Hio");
+        this.mainStage.setTitle("Montes do Hio");
         
         
         try {
-            mainPane=FXMLLoader.<BorderPane>load(MainFX.class.getResource("/Vista/Main.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainFX.class.getResource("/Vista/MainVista.fxml"));
+            Image img1=new Image(new FileInputStream(getRutaRecurso("/src/Vista/forest.png")));
+            ImageView imgv=new ImageView(img1);
+            Pane stpane=new Pane(imgv);
+            mainPane=(SplitPane)loader.load();
+            mainPane.getItems().set(1, stpane);
             scn=new Scene(mainPane);
             mainStage.setScene(scn);
             mainStage.show();
             
         } catch (IOException e){
-            System.out.println(e.getCause());
+            System.out.println(e.getMessage());
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(MainFX.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -82,13 +94,11 @@ public class MainFX extends Application {
 }
     
     public static void switchPane (Pane stp){
-        //mainPane.setCenter(stp);
+        mainPane.getItems().set(1, stp);
         scn.setRoot(mainPane);
     }
-    
     public static void main(String[] args) {
         launch(args);
     }
     
 }
-

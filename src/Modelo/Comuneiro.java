@@ -9,20 +9,40 @@ package Modelo;
  * @author DAW
  */
 public class Comuneiro {
-    private int numSocio;
+    private int numSocio=0;
     private String nome;
-    private String ape1;
-    private String ape2;
+    private String apelidos;
     private String dni;
     private Direccion dir;
     private String info;
+    private int telefono;
+    private String mail;
 
-    public Comuneiro(int numSocio, String nome, String ape1, String ape2, String dni) {
-        this.numSocio = numSocio;
+    public Comuneiro(String nome, String apelidos, String dni, Direccion dir) {
         this.nome = nome;
-        this.ape1 = ape1;
-        this.ape2 = ape2;
+        this.apelidos = apelidos;
         this.dni = dni;
+        this.dir = dir;
+        numSocio++;
+    }
+
+    public Comuneiro(String nome, String apelidos, String dni, Direccion dir, int telefono) {
+        this.nome = nome;
+        this.apelidos = apelidos;
+        this.dni = dni;
+        this.dir = dir;
+        this.telefono = telefono;
+        numSocio++;
+    }
+
+    public Comuneiro(String nome, String apelidos, String dni, Direccion dir, int telefono, String mail) {
+        this.nome = nome;
+        this.apelidos = apelidos;
+        this.dni = dni;
+        this.dir = dir;
+        this.telefono = telefono;
+        this.mail = mail;
+        numSocio++;
     }
 
     public int getNumSocio() {
@@ -41,20 +61,12 @@ public class Comuneiro {
         this.nome = nome;
     }
 
-    public String getApe1() {
-        return ape1;
+    public String getApelidos() {
+        return apelidos;
     }
 
-    public void setApe1(String ape1) {
-        this.ape1 = ape1;
-    }
-
-    public String getApe2() {
-        return ape2;
-    }
-
-    public void setApe2(String ape2) {
-        this.ape2 = ape2;
+    public void setApelidos(String apelidos) {
+        this.apelidos = apelidos;
     }
 
     public String getDni() {
@@ -80,6 +92,24 @@ public class Comuneiro {
     public void setInfo(String info) {
         this.info = info;
     }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    
     
     
     
