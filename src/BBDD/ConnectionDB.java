@@ -10,20 +10,23 @@ import java.util.logging.Logger;
 import org.mariadb.jdbc.Connection;
 
 /**
- *
+ * Clase con metodos static pra xestionar a conexion coa base de datos
  * @author DAW
  */
 public class ConnectionDB {
+    private static String user="root";
+    private static String pass="root";
+    private static String url="//localhost:3306/montesDoHio";
     
     /**
-     * 
+     * Con este metodo creamos a conexion coa base de datos pasandolle os parametros que se introduciran no menu da app
      * @return 
      */
-    public static Connection openConnection (){
+    public static Connection openConnection (String url, String user, String pass){
         Connection con = null;
         try{
             Class.forName("org.mariadb.jdbc.Driver");
-            String conUrl="jdbc:mariadb://localhost:3306/concesionario?user=root&password=root";
+            String conUrl="jdbc:mariadb:"+url+"?user="+user+"&password="+pass;
             con=(Connection) DriverManager.getConnection(conUrl);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnectionDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -31,7 +34,7 @@ public class ConnectionDB {
         return con;
     }
     /**
-     * 
+     * Con este metodo pecharemos a conexion
      * @param con
      * @throws SQLException 
      */
