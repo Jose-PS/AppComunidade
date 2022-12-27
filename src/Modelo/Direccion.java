@@ -6,7 +6,7 @@ package Modelo;
 
 /**
  * Pra non sobrecargar a clase comuneiro, meto aqui os datos da direccion
- * @author DAW
+ * @author Jose PS
  */
 public class Direccion {
     private String rua;

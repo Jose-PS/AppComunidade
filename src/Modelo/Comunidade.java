@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 /**
- *
- * @author DAW
+ * Nesta clase almacenarase toda a informacion, os comuneiros nun treemap pra despois poder ir ordenando e sacando listados.
+ * @author Jose PS
  */
 public class Comunidade {
     public static TreeMap<Integer, Comuneiro> comuneiros;

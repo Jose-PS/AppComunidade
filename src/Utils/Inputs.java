@@ -6,6 +6,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
+
+/*
+*Clase pra manejar as entradas de datos, son ferramentas pra validar a informacion.
+*@author Jose PS
+*/
 public class Inputs {
 
     private static Scanner lec = new Scanner(System.in);

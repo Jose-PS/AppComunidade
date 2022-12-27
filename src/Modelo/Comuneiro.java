@@ -6,7 +6,7 @@ package Modelo;
 
 /**
  * Clase pra gardar os datos de cada comuneiro
- * @author DAW
+ * @author Jose PS
  */
 public class Comuneiro {
     private int numSocio=0;
@@ -18,6 +18,9 @@ public class Comuneiro {
     private int telefono;
     private String mail;
 
+    /*
+    *Aqui defino varios constructores pra crear o obxeto de distintas formas.
+    */
     public Comuneiro(String nome, String apelidos, String dni, Direccion dir) {
         this.nome = nome;
         this.apelidos = apelidos;

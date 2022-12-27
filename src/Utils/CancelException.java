@@ -6,7 +6,7 @@ package Utils;
 
 /**
  *
- * @author DAW
+ * @author Jose PS
  */
 public class CancelException extends Exception {
 

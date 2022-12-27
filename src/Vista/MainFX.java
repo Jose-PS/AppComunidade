@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author DAW
+ * @author Jose PS
  */
 public class MainFX extends Application {
     private static Stage mainStage;

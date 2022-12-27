@@ -21,7 +21,7 @@ import javafx.scene.web.WebView;
 /**
  * FXML Controller class
  *
- * @author DAW
+ * @author Jose PS
  */
 public class FormularioController implements Initializable {
 
@@ -68,6 +68,11 @@ public class FormularioController implements Initializable {
 
     @FXML
     private void altaComuneiro(ActionEvent event) {
+    }
+    
+    @FXML
+    private void mostraQR(){
+        
     }
     
 }

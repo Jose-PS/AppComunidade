@@ -17,10 +17,10 @@
             <Button layoutX="50.0" layoutY="307.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#buscaComuneiros" prefWidth="150.0" text="Buscar Comuneiros" />
             <Button layoutX="50.0" layoutY="79.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#novoMail" prefWidth="150.0" text="Crear Correo" />
             <Button layoutX="50.0" layoutY="345.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#listaComuneiros" prefWidth="150.0" text="Listar Comuneiros" />
-            <Button layoutX="50.0" layoutY="392.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#exportaPdf" prefWidth="150.0" text="Exportar Listado" />
             <Button layoutX="50.0" layoutY="500.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#sair" prefWidth="150.0" text="Sair" />
             <Button layoutX="50.0" layoutY="127.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#accesoQR" prefWidth="150.0" text="Acceso QR" />
             <TextField fx:id="busca" layoutX="51.0" layoutY="274.0" />
+            <Button layoutX="50.0" layoutY="173.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#imprimeSobres" prefWidth="150.0" text="Imprimir Sobres" />
          </children>
       </Pane>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" />

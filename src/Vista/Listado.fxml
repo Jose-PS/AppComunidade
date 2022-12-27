@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ListadoController">
+   <children>
+      <Button layoutX="117.0" layoutY="481.0" mnemonicParsing="false" onAction="#atras" text="Cancelar" />
+      <Button layoutX="373.0" layoutY="481.0" mnemonicParsing="false" onAction="#exportaPdf" text="Exportar" />
+      <TextFlow fx:id="listado" prefHeight="450.0" prefWidth="550.0" />
+      <Button layoutX="244.0" layoutY="481.0" mnemonicParsing="false" onAction="#imprimeListado" text="Imprimir" />
+   </children>
+</Pane>

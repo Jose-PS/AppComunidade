@@ -28,7 +28,7 @@ import javafx.scene.web.WebView;
 /**
  * FXML Controller class
  *
- * @author DAW
+ * @author Jose PS
  */
 public class MainController implements Initializable {
 
@@ -39,10 +39,13 @@ public class MainController implements Initializable {
     private TextField busca;
     private Pane alta;
     private Pane correo;
-    private Pane lectorQR;
+    private Pane accesoQR;
+    private Pane listado;
+    private Pane buscar;
 
     /**
-     * Initializes the controller class.
+     * Aqui cargamos os fxml pra despois usar esas variables nos metodos de navegacion.
+     * Aparte tamen definimos o menu desplegable (ChoiceBox) de busqueda ou listado.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,9 +54,12 @@ public class MainController implements Initializable {
                     "Por Nome", "Por Aldea", "Por Numero")
             );
             tipo.getSelectionModel().select(0);
+            listado=FXMLLoader.load(this.getClass().getResource("/Vista/Listado.fxml"));
             alta=FXMLLoader.load(this.getClass().getResource("/Vista/Alta.fxml"));
             correo=FXMLLoader.load(this.getClass().getResource("/Vista/Mail.fxml"));
-            //lectorQR=FXMLLoader.load(this.getClass().getResource("/Vista/AccesoQR.fxml"));
+            accesoQR=FXMLLoader.load(this.getClass().getResource("/Vista/Acceso.fxml"));
+            buscar=FXMLLoader.load(this.getClass().getResource("/Vista/Busca.fxml"));
+            
             tipo.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
                 @Override
                 public void changed(ObservableValue ov, Number t, Number t1) {
@@ -65,35 +71,65 @@ public class MainController implements Initializable {
         }
     }    
     
-
+    /*
+     *Metodo pra o boton de alta no menu principal, cambia o panel lateral para a seccion de alta.
+    */
     @FXML
     private void alta(ActionEvent event) {
         MainFX.switchPane(alta);
     }
-
+    
+    /*
+    *Fai a busqueda de comuneiros polo criterio que se seleccione e mostra os resultados en un webView
+    *Cada comuneiro tera a opcion de editar ou eliminar.
+    */
     @FXML
     private void buscaComuneiros(ActionEvent event) {
+        MainFX.switchPane(buscar);
     }
 
-
+    /*
+    *Lista os comuneiros polo criterio que se seleccione e mostra resultados nun webView
+    */
     @FXML
     private void listaComuneiros(ActionEvent event) {
+        MainFX.switchPane(listado);
     }
-
+    
+    /*
+    *Exporta o listado existente a un arquivo pdf.
+    */
     @FXML
     private void exportaPdf(ActionEvent event) {
     }
-
+    
+    /*
+    *Abre o panel de lectura de codigos QR para as reunions.
+    */
     @FXML
     private void accesoQR(ActionEvent event) {
-        MainFX.switchPane(lectorQR);
+        MainFX.switchPane(accesoQR);
     }
-
+    
+    /*
+    *Encargase de imprimir o enderezo de cada comuneiro nun sobre para enviar por correo.
+    */
+    @FXML
+    private void imprimeSobres(){
+        
+    }
+    
+    /*
+    *Abre o panel de edicion de email pra xerar correos automaticamente.
+    */
     @FXML
     private void novoMail(ActionEvent event) {
         MainFX.switchPane(correo);
     }
 
+    /*
+    *Boton de pechar a aplicacion.
+    */
     @FXML
     private void sair(ActionEvent event) {
         System.exit(0);
