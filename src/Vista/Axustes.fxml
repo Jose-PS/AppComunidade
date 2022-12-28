@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.AxustesController">
+   <children>
+      <Button layoutX="74.0" layoutY="481.0" mnemonicParsing="false" onAction="#atras" text="Cancelar" />
+      <Button layoutX="417.0" layoutY="481.0" mnemonicParsing="false" onAction="#gardaConf" text="Gardar" />
+      <TextField fx:id="bbddConnection" layoutX="61.0" layoutY="66.0" promptText="Direccion BBDD" />
+      <TextField fx:id="user" layoutX="61.0" layoutY="126.0" promptText="Ususario" />
+      <PasswordField fx:id="pass" layoutX="61.0" layoutY="186.0" promptText="Contrasinal" />
+   </children>
+</Pane>

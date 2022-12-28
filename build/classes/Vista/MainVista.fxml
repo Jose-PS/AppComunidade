@@ -21,6 +21,7 @@
             <Button layoutX="50.0" layoutY="127.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#accesoQR" prefWidth="150.0" text="Acceso QR" />
             <TextField fx:id="busca" layoutX="51.0" layoutY="274.0" />
             <Button layoutX="50.0" layoutY="173.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#imprimeSobres" prefWidth="150.0" text="Imprimir Sobres" />
+            <Button layoutX="50.0" layoutY="406.0" mnemonicParsing="false" onAction="#axustes" prefWidth="150.0" text="Axustes" />
          </children>
       </Pane>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" />

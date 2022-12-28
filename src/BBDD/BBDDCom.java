@@ -17,13 +17,14 @@ import org.mariadb.jdbc.Connection;
  * @author DAW
  */
 public class BBDDCom {
-    private static String insert="INSERT INTO comuneiros (NOME, APELIDOS, DNI, DIR, TELEFONO, MAIL) VALUES (?, ?, ?, ?, ?, ?)";
-    private static String delete="";
-    private static String getByAldea="";
-    private static String getByNome="";
-    private static String getByDni="";
-    private static String getByApelido="";
-    private static String update="";
+    private static final String insert="INSERT INTO comuneiros (NOME, APELIDOS, DNI, TELEFONO, MAIL) VALUES (?, ?, ?, ?, ?)";
+    private static final String insertDir="INSERT INTO direccions (ID, RUA, PROVINCIA, LOCALIDADE, ALDEA, NUMERO, CP ) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String delete="";
+    private static final String getByAldea="";
+    private static final String getByNome="";
+    private static final String getByDni="";
+    private static final String getByApelido="";
+    private static final String update="";
     
     
     
@@ -45,9 +46,8 @@ public class BBDDCom {
             ins.setString(1, nome);
             ins.setString(2, apelidos);
             ins.setString(3, dni);
-            ins.setString(4, "dir");
-            ins.setInt(5, telefono);
-            ins.setString(6, mail);
+            ins.setInt(4, telefono);
+            ins.setString(5, mail);
             ins.executeUpdate();
             try(PreparedStatement num=con.prepareStatement(getNum)){
                 num.setString(1, dni);
@@ -56,6 +56,7 @@ public class BBDDCom {
                     numero=data.getInt(1);
                 }
             }
+            insertDireccion(numero, dir.getRua(), dir.getProvincia(), dir.getLocalidade(), dir.getAldea(), dir.getNumero(), dir.getCp(),con );
         } catch (SQLException ex) {
             Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -63,4 +64,32 @@ public class BBDDCom {
      return numero;   
     }
     
+    
+    /**
+     * Este metodo inserta a direccion co id de cada comuneiro na taboa de direccions.
+     * @param id
+     * @param rua
+     * @param provincia
+     * @param localidade
+     * @param aldea
+     * @param numero
+     * @param cp
+     * @param con
+     * @return 
+     */
+    public static int insertDireccion (int id, String rua, String provincia, String localidade, String aldea, int numero, String cp, Connection con){
+        try (PreparedStatement ins = con.prepareStatement(insertDir)){
+            ins.setInt(1, id);
+            ins.setString(2, rua);
+            ins.setString(3, provincia);
+            ins.setString(4, localidade);
+            ins.setString(5, aldea);
+            ins.setInt(6, numero);
+            ins.setString(7, cp);
+            return ins.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
+    }
 }

@@ -42,6 +42,7 @@ public class MainController implements Initializable {
     private Pane accesoQR;
     private Pane listado;
     private Pane buscar;
+    private Pane axustes;
 
     /**
      * Aqui cargamos os fxml pra despois usar esas variables nos metodos de navegacion.
@@ -54,6 +55,7 @@ public class MainController implements Initializable {
                     "Por Nome", "Por Aldea", "Por Numero")
             );
             tipo.getSelectionModel().select(0);
+            axustes=FXMLLoader.load(this.getClass().getResource("/Vista/Axustes.fxml"));
             listado=FXMLLoader.load(this.getClass().getResource("/Vista/Listado.fxml"));
             alta=FXMLLoader.load(this.getClass().getResource("/Vista/Alta.fxml"));
             correo=FXMLLoader.load(this.getClass().getResource("/Vista/Mail.fxml"));
@@ -96,12 +98,6 @@ public class MainController implements Initializable {
         MainFX.switchPane(listado);
     }
     
-    /*
-    *Exporta o listado existente a un arquivo pdf.
-    */
-    @FXML
-    private void exportaPdf(ActionEvent event) {
-    }
     
     /*
     *Abre o panel de lectura de codigos QR para as reunions.
@@ -133,6 +129,11 @@ public class MainController implements Initializable {
     @FXML
     private void sair(ActionEvent event) {
         System.exit(0);
+    }
+
+    @FXML
+    private void axustes(ActionEvent event) {
+        MainFX.switchPane(axustes);
     }
     
 }
