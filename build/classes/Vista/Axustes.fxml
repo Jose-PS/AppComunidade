@@ -11,8 +11,13 @@
    <children>
       <Button layoutX="74.0" layoutY="481.0" mnemonicParsing="false" onAction="#atras" text="Cancelar" />
       <Button layoutX="417.0" layoutY="481.0" mnemonicParsing="false" onAction="#gardaConf" text="Gardar" />
-      <TextField fx:id="bbddConnection" layoutX="61.0" layoutY="66.0" promptText="Direccion BBDD" />
-      <TextField fx:id="user" layoutX="61.0" layoutY="126.0" promptText="Ususario" />
-      <PasswordField fx:id="pass" layoutX="61.0" layoutY="186.0" promptText="Contrasinal" />
+      <TextField fx:id="bbddConnection" layoutX="268.0" layoutY="67.0" promptText="Direccion BBDD" />
+      <TextField fx:id="user" layoutX="268.0" layoutY="133.0" promptText="Ususario" />
+      <PasswordField fx:id="pass" layoutX="268.0" layoutY="202.0" promptText="Contrasinal" />
+      <TextField fx:id="ruta" layoutX="268.0" layoutY="265.0" promptText="Ruta Arquivo" />
+      <Label layoutX="105.0" layoutY="71.0" text="Direccion IP da BBDD" />
+      <Label layoutX="105.0" layoutY="137.0" text="Usuario da BBDD" />
+      <Label layoutX="105.0" layoutY="206.0" text="Contrasinal da BBDD" />
+      <Button fx:id="explorador" layoutX="105.0" layoutY="265.0" mnemonicParsing="false" text="Abrir Arquivo" />
    </children>
 </Pane>

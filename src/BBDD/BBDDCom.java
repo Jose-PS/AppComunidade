@@ -19,11 +19,14 @@ import org.mariadb.jdbc.Connection;
 public class BBDDCom {
     private static final String insert="INSERT INTO comuneiros (NOME, APELIDOS, DNI, TELEFONO, MAIL) VALUES (?, ?, ?, ?, ?)";
     private static final String insertDir="INSERT INTO direccions (ID, RUA, PROVINCIA, LOCALIDADE, ALDEA, NUMERO, CP ) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    private static final String delete="";
-    private static final String getByAldea="";
-    private static final String getByNome="";
-    private static final String getByDni="";
-    private static final String getByApelido="";
+    private static final String delete="DELETE FROM comuneiros, direccions WHERE ID = ?";
+    private static final String getByAldea="SELECT * FROM comuneiros WHERE ALDEA = ?";
+    private static final String getByNome="SELECT * FROM comuneiros WHERE NOME = ?";
+    private static final String getByDni="SELECT * FROM comuneiros WHERE DNI = ?";
+    private static final String getByApelido="SELECT * FROM comuneiros WHERE APELIDOS LIKE ?";
+    private static final String listByApelido="SELECT * FROM comuneiros ORDER BY APELIDOS";
+    private static final String listByAldea="SELECT * FROM comuneiros ORDER BY ALDEA";
+    private static final String listByNome="SELECT * FROM comuneiros ORDER BY NOME";
     private static final String update="";
     
     
