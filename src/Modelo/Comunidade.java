@@ -5,26 +5,32 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * Nesta clase almacenarase toda a informacion, os comuneiros nun treemap pra despois poder ir ordenando e sacando listados.
  * @author Jose PS
  */
 public class Comunidade {
-    public static TreeMap<Integer, Comuneiro> comuneiros;
-    public static ArrayList<String> cartas;
+    private static TreeMap<String, Comuneiro> comuneiros=new TreeMap<>();
+    private static ArrayList<String> direccions;
     
     public static void xeraCorreo (String txt){
         
     }
     
     public static void engadeComuneiro(Comuneiro c){
-        comuneiros.put(c.getNumSocio(), c);
+        comuneiros.put(c.getDni(), c);
     }
     
     public static void eliminaComuneiro(Comuneiro c){
         comuneiros.remove(c.getNumSocio());
+    }
+    
+    public static Collection<Comuneiro> getListado(){
+        return comuneiros.values();
     }
     
 }

@@ -4,6 +4,9 @@
  */
 package Controlador;
 
+import Modelo.Comuneiro;
+import Modelo.Comunidade;
+import Modelo.Direccion;
 import Vista.MainFX;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +20,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebView;
+import javafx.stage.Popup;
 
 /**
  * FXML Controller class
@@ -38,15 +42,11 @@ public class FormularioController implements Initializable {
     @FXML
     private TextField telefono;
     @FXML
-    private Label tipoc;
-    @FXML
     private TextField email;
     @FXML
     private TextField numero;
-    @FXML
-    private TextField lectorQR;
-    @FXML
-    private WebView mostraLectura;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -56,23 +56,34 @@ public class FormularioController implements Initializable {
         // TODO
     }    
 
+    /**
+     * Volve a paxina principal e limpa os campos do formulario
+     * @param event 
+     */
     @FXML
     private void atras(ActionEvent event) {
         MainFX.getBack();
+        apelidos.setText(null);
+        nome.setText(null);
+        dni.setText(null);
+        aldea.setText(null);
+        rua.setText(null);
+        telefono.setText(null);
+        email.setText(null);
+        numero.setText(null);
     }
     
-    @FXML
-    private void xeraCorreo(ActionEvent event){
-        
-    }
-
+    /**
+     * Engade o novo comuneiro no TreeMap da clase Comunidade
+     * @param event 
+     */
     @FXML
     private void altaComuneiro(ActionEvent event) {
+        Direccion d=new Direccion(rua.getText(), aldea.getText(), numero.getText());
+        Comuneiro c=new Comuneiro(nome.getText(), apelidos.getText(), dni.getText(), d, telefono.getText(), email.getText());
+        Comunidade.engadeComuneiro(c);
     }
     
-    @FXML
-    private void mostraQR(){
-        
-    }
+    
     
 }

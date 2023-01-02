@@ -13,10 +13,10 @@ public class Direccion {
     private String provincia="Pontevedra";
     private String localidade="Cangas";
     private String Aldea;
-    private int numero;
+    private String numero;
     private String cp="36945";
 
-    public Direccion(String rua, String Aldea, int numero) {
+    public Direccion(String rua, String Aldea, String numero) {
         this.rua = rua;
         this.Aldea = Aldea;
         this.numero = numero;
@@ -54,11 +54,11 @@ public class Direccion {
         this.Aldea = Aldea;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

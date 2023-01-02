@@ -42,14 +42,14 @@ public class BBDDCom {
      * @param con
      * @return 
      */
-    public static int insertComuneiro (String nome, String apelidos, String dni, Direccion dir, int telefono, String mail, Connection con){
+    public static int insertComuneiro (String nome, String apelidos, String dni, Direccion dir, String telefono, String mail, Connection con){
         int numero=-1;
         String getNum = "SELECT NUM FROM comuneiros WHERE DNI=?";
         try (PreparedStatement ins = con.prepareStatement(insert)){
             ins.setString(1, nome);
             ins.setString(2, apelidos);
             ins.setString(3, dni);
-            ins.setInt(4, telefono);
+            ins.setString(4, telefono);
             ins.setString(5, mail);
             ins.executeUpdate();
             try(PreparedStatement num=con.prepareStatement(getNum)){
@@ -80,14 +80,14 @@ public class BBDDCom {
      * @param con
      * @return 
      */
-    public static int insertDireccion (int id, String rua, String provincia, String localidade, String aldea, int numero, String cp, Connection con){
+    public static int insertDireccion (int id, String rua, String provincia, String localidade, String aldea, String numero, String cp, Connection con){
         try (PreparedStatement ins = con.prepareStatement(insertDir)){
             ins.setInt(1, id);
             ins.setString(2, rua);
             ins.setString(3, provincia);
             ins.setString(4, localidade);
             ins.setString(5, aldea);
-            ins.setInt(6, numero);
+            ins.setString(6, numero);
             ins.setString(7, cp);
             return ins.executeUpdate();
         } catch (SQLException ex) {

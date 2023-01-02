@@ -14,9 +14,9 @@ public class Comuneiro {
     private String apelidos;
     private String dni;
     private Direccion dir;
-    private String info;
-    private int telefono;
-    private String mail;
+    private String info="";
+    private String telefono="";
+    private String mail="";
 
     /*
     *Aqui defino varios constructores pra crear o obxeto de distintas formas.
@@ -29,7 +29,7 @@ public class Comuneiro {
         numSocio++;
     }
 
-    public Comuneiro(String nome, String apelidos, String dni, Direccion dir, int telefono) {
+    public Comuneiro(String nome, String apelidos, String dni, Direccion dir, String telefono) {
         this.nome = nome;
         this.apelidos = apelidos;
         this.dni = dni;
@@ -38,7 +38,7 @@ public class Comuneiro {
         numSocio++;
     }
 
-    public Comuneiro(String nome, String apelidos, String dni, Direccion dir, int telefono, String mail) {
+    public Comuneiro(String nome, String apelidos, String dni, Direccion dir, String telefono, String mail) {
         this.nome = nome;
         this.apelidos = apelidos;
         this.dni = dni;
@@ -96,11 +96,11 @@ public class Comuneiro {
         this.info = info;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -110,6 +110,11 @@ public class Comuneiro {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    @Override
+    public String toString() {
+        return "Comuneiro{" + "numSocio=" + numSocio + ", nome=" + nome + ", apelidos=" + apelidos + ", dni=" + dni + ", info=" + info + ", telefono=" + telefono + ", mail=" + mail + '}';
     }
 
     
