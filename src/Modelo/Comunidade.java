@@ -33,4 +33,8 @@ public class Comunidade {
         return comuneiros.values();
     }
     
+    public static Comuneiro getComuneiro(int numSocio){
+        return comuneiros.get(numSocio);
+    }
+    
 }

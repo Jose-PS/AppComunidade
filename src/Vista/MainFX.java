@@ -15,12 +15,15 @@ import java.security.ProtectionDomain;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 /**
@@ -102,6 +105,8 @@ public class MainFX extends Application {
     public static void getBack(){
         mainPane.getItems().set(1, stPane);
     }
+    
+    
     public static void main(String[] args) {
         launch(args);
     }
