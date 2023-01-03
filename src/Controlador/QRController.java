@@ -40,7 +40,7 @@ public class QRController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        lector.requestFocus();
+        
     }    
 
     
@@ -60,7 +60,7 @@ public class QRController implements Initializable {
      */
     @FXML
     private void mostraLectura(InputMethodEvent event) {
-       
+        System.out.println(lector.getText());
     }
     
 }

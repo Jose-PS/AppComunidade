@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import BBDD.ConnectionDB;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.security.CodeSource;
 import java.security.ProtectionDomain;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -25,6 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import org.mariadb.jdbc.Connection;
 
 /**
  *
@@ -35,6 +38,9 @@ public class MainFX extends Application {
     private static SplitPane mainPane;
     private static Scene scn;
     private static Pane stPane;
+    private static Connection con;
+
+    
 
     @Override
     public void start(Stage mainStage) {
@@ -104,6 +110,10 @@ public class MainFX extends Application {
     
     public static void getBack(){
         mainPane.getItems().set(1, stPane);
+    }
+    
+    public static void conectaDB(String ip, String user, String pass) throws SQLException, ClassNotFoundException {
+        con=ConnectionDB.openConnection(ip, user, pass);
     }
     
     

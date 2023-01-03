@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package BBDD;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -11,34 +12,38 @@ import org.mariadb.jdbc.Connection;
 
 /**
  * Clase con metodos static pra xestionar a conexion coa base de datos
+ *
  * @author DAW
  */
 public class ConnectionDB {
-    private static String user="root";
-    private static String pass="root";
-    private static String url="//localhost:3306/montesDoHio";
-    
+
+    private static String user = "";
+    private static String pass = "";
+    private static String url = "//localhost:3306/montesdohio";
+
     /**
-     * Con este metodo creamos a conexion coa base de datos pasandolle os parametros que se introduciran no menu da app
-     * @return 
+     * Con este metodo creamos a conexion coa base de datos pasandolle os
+     * parametros que se introduciran no menu da app
+     *
+     * @return
      */
-    public static Connection openConnection (String url, String user, String pass){
+    public static Connection openConnection(String url, String user, String pass) throws ClassNotFoundException, SQLException {
         Connection con = null;
-        try{
-            Class.forName("org.mariadb.jdbc.Driver");
-            String conUrl="jdbc:mariadb:"+url+"?user="+user+"&password="+pass;
-            con=(Connection) DriverManager.getConnection(conUrl);
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ConnectionDB.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+        Class.forName("org.mariadb.jdbc.Driver");
+        String conUrl = "jdbc:mariadb:" + url + "?user=" + user + "&password=" + pass;
+        con = (Connection) DriverManager.getConnection(conUrl);
+
         return con;
     }
+
     /**
      * Con este metodo pecharemos a conexion
+     *
      * @param con
-     * @throws SQLException 
+     * @throws SQLException
      */
-    public static void closeConnection (Connection con) throws SQLException{
+    public static void closeConnection(Connection con) throws SQLException {
         con.close();
     }
 }

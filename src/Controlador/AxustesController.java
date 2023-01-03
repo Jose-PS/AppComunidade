@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import BBDD.ConnectionDB;
 import Vista.MainFX;
 import java.io.File;
 import java.net.URL;
@@ -12,9 +13,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -35,6 +40,8 @@ public class AxustesController implements Initializable {
     private Button explorador;
 
     File arquivo;
+    @FXML
+    private Label avisos;
 
     /**
      * Initializes the controller class.
@@ -51,17 +58,56 @@ public class AxustesController implements Initializable {
             );
 
             arquivo = fileChooser.showOpenDialog(null);
+            ruta.setText(arquivo.getAbsolutePath());
         });
-
+       
     }
-
+    
+    /**
+     * Regresa ao menu principal.
+     * @param event 
+     */
     @FXML
     private void atras(ActionEvent event) {
         MainFX.getBack();
     }
 
+    /**
+     * Garda a configuracion nun arquivo RandomAccessFile que se creara no directorio.
+     * @param event 
+     */
     @FXML
     private void gardaConf(ActionEvent event) {
+    }
+
+    /**
+     * Lee o arquivo local e o envia a base de datos.
+     * @param event 
+     */
+    @FXML
+    private void gardaBD(ActionEvent event) {
+    }
+
+    /**
+     * Lee a base de datos e garda todo nun arquivo local pra poder traballar sin conexion.
+     * @param event 
+     */
+    @FXML
+    private void importaBD(ActionEvent event) {
+    }
+
+    /**
+     * Crea unha conexion coa base de datos cos datos que se introduzan nos campos.
+     * @param event 
+     */
+    @FXML
+    private void conectaBD(ActionEvent event) {
+        try {
+            MainFX.conectaDB(bbddConnection.getText(), user.getText(), pass.getText());
+            avisos.setText("Conectado con exito!!");
+        } catch (SQLException| ClassNotFoundException ex) {
+            avisos.setText("Houbo un fallo na conexion, revisa os datos.");
+        } 
     }
 
 }

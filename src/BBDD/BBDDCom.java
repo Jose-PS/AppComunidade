@@ -17,6 +17,7 @@ import org.mariadb.jdbc.Connection;
  * @author DAW
  */
 public class BBDDCom {
+    
     private static final String insert="INSERT INTO comuneiros (NOME, APELIDOS, DNI, TELEFONO, MAIL) VALUES (?, ?, ?, ?, ?)";
     private static final String insertDir="INSERT INTO direccions (ID, RUA, PROVINCIA, LOCALIDADE, ALDEA, NUMERO, CP ) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String delete="DELETE FROM comuneiros, direccions WHERE ID = ?";
