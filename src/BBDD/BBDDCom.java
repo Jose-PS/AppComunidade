@@ -4,6 +4,7 @@
  */
 package BBDD;
 
+import Modelo.Comuneiro;
 import Modelo.Direccion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,24 +44,24 @@ public class BBDDCom {
      * @param con
      * @return 
      */
-    public static int insertComuneiro (String nome, String apelidos, String dni, Direccion dir, String telefono, String mail, Connection con){
+    public static int insertComuneiro (Comuneiro c, Connection con){
         int numero=-1;
         String getNum = "SELECT NUM FROM comuneiros WHERE DNI=?";
         try (PreparedStatement ins = con.prepareStatement(insert)){
-            ins.setString(1, nome);
-            ins.setString(2, apelidos);
-            ins.setString(3, dni);
-            ins.setString(4, telefono);
-            ins.setString(5, mail);
+            ins.setString(1, c.getNome());
+            ins.setString(2, c.getApelidos());
+            ins.setString(3, c.getDni());
+            ins.setString(4, c.getTelefono());
+            ins.setString(5, c.getMail());
             ins.executeUpdate();
             try(PreparedStatement num=con.prepareStatement(getNum)){
-                num.setString(1, dni);
+                num.setString(1, c.getDni());
                 ResultSet data=num.executeQuery();
                 while(data.next()){
                     numero=data.getInt(1);
                 }
             }
-            insertDireccion(numero, dir.getRua(), dir.getProvincia(), dir.getLocalidade(), dir.getAldea(), dir.getNumero(), dir.getCp(),con );
+            insertDireccion(c,con );
         } catch (SQLException ex) {
             Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -81,15 +82,16 @@ public class BBDDCom {
      * @param con
      * @return 
      */
-    public static int insertDireccion (int id, String rua, String provincia, String localidade, String aldea, String numero, String cp, Connection con){
+    public static int insertDireccion (Comuneiro c, Connection con){
+        Direccion d=c.getDir();
         try (PreparedStatement ins = con.prepareStatement(insertDir)){
-            ins.setInt(1, id);
-            ins.setString(2, rua);
-            ins.setString(3, provincia);
-            ins.setString(4, localidade);
-            ins.setString(5, aldea);
-            ins.setString(6, numero);
-            ins.setString(7, cp);
+            ins.setInt(1, c.getNumSocio());
+            ins.setString(2, d.getRua());
+            ins.setString(3, d.getProvincia());
+            ins.setString(4, d.getLocalidade());
+            ins.setString(5, d.getAldea());
+            ins.setString(6, d.getNumero());
+            ins.setString(7, d.getCp());
             return ins.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);

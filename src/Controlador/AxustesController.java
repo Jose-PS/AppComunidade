@@ -105,8 +105,10 @@ public class AxustesController implements Initializable {
         try {
             MainFX.conectaDB(bbddConnection.getText(), user.getText(), pass.getText());
             avisos.setText("Conectado con exito!!");
+            MainFX.setConnected(true);
         } catch (SQLException| ClassNotFoundException ex) {
             avisos.setText("Houbo un fallo na conexion, revisa os datos.");
+            MainFX.setConnected(false);
         } 
     }
 

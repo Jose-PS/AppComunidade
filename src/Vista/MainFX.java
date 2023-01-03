@@ -39,6 +39,7 @@ public class MainFX extends Application {
     private static Scene scn;
     private static Pane stPane;
     private static Connection con;
+    private static boolean connected=false;
 
     
 
@@ -115,6 +116,19 @@ public class MainFX extends Application {
     public static void conectaDB(String ip, String user, String pass) throws SQLException, ClassNotFoundException {
         con=ConnectionDB.openConnection(ip, user, pass);
     }
+
+    public static boolean isConnected() {
+        return connected;
+    }
+
+    public static void setConnected(boolean connected) {
+        MainFX.connected = connected;
+    }
+
+    public static Connection getCon() {
+        return con;
+    }
+    
     
     
     public static void main(String[] args) {

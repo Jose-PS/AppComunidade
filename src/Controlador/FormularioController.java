@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import BBDD.BBDDCom;
 import Modelo.Comuneiro;
 import Modelo.Comunidade;
 import Modelo.Direccion;
@@ -82,6 +83,9 @@ public class FormularioController implements Initializable {
         Direccion d=new Direccion(rua.getText(), aldea.getText(), numero.getText());
         Comuneiro c=new Comuneiro(nome.getText(), apelidos.getText(), dni.getText(), d, telefono.getText(), email.getText());
         Comunidade.engadeComuneiro(c);
+        if(MainFX.isConnected()){
+            BBDDCom.insertComuneiro(c, MainFX.getCon());
+        }
     }
     
     
