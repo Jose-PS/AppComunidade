@@ -4,7 +4,6 @@
  */
 package Controlador;
 
-import BBDD.ConnectionDB;
 import Vista.MainFX;
 import java.io.File;
 import java.net.URL;
@@ -18,8 +17,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * FXML Controller class

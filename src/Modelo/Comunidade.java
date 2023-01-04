@@ -36,5 +36,51 @@ public class Comunidade {
     public static Comuneiro getComuneiro(int numSocio){
         return comuneiros.get(numSocio);
     }
+
+    public static ArrayList<Comuneiro> buscaNome(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    /**
+     * Recibe un String coa aldea e devolve un ArrayList cos comuneiros de esa aldea.
+     * @param aldea
+     * @return 
+     */
+    public static ArrayList<Comuneiro> buscaAldea(String aldea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    /**
+     * 
+     * @param numero
+     * @return 
+     */
+    public static ArrayList<Comuneiro> buscaNumero(String numero) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public static ArrayList<Comuneiro> listaNome() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public static ArrayList<Comuneiro> listaAldea() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public static ArrayList<Comuneiro> listaNumero() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

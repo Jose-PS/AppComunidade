@@ -12,6 +12,6 @@
       <Button layoutX="74.0" layoutY="481.0" mnemonicParsing="false" onAction="#atras" text="Cancelar" />
       <Button layoutX="417.0" layoutY="481.0" mnemonicParsing="false" onAction="#modifica" text="Modificar" />
       <Button layoutX="246.0" layoutY="481.0" mnemonicParsing="false" onAction="#elimina" text="Eliminar" />
-      <TextFlow fx:id="resultados" layoutX="7.0" prefHeight="450.0" prefWidth="550.0" />
+      <TextFlow fx:id="resultados" prefHeight="450.0" prefWidth="550.0" />
    </children>
 </Pane>
