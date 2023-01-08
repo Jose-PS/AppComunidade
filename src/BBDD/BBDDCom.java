@@ -104,7 +104,7 @@ public class BBDDCom {
     }
 
     /**
-     *
+     * Recibe un nome por parametro e devolve un arraylist cos comuneiros que se chamen asi.
      * @param nome
      * @return
      */
@@ -113,7 +113,7 @@ public class BBDDCom {
     }
 
     /**
-     *
+     * Recibe un String coa aldea e devolve un ArrayList cos comuneiros de esa aldea.
      * @param aldea
      * @return
      */
@@ -122,7 +122,7 @@ public class BBDDCom {
     }
 
     /**
-     *
+     * Recibe un numero por parametro e devolve os comuneiros que coincidan con ese numero.
      * @param numero
      * @return
      */
@@ -131,7 +131,7 @@ public class BBDDCom {
     }
 
     /**
-     *
+     * Devolve un listado dos comuneiros ordenados polo nome.
      * @return
      */
     public static ArrayList<Comuneiro> listaNome() {
@@ -139,7 +139,7 @@ public class BBDDCom {
     }
 
     /**
-     *
+     * Devolve un listado dos comuneiros ordeados pola aldea.
      * @return
      */
     public static ArrayList<Comuneiro> listaAldea() {
@@ -147,7 +147,7 @@ public class BBDDCom {
     }
 
     /**
-     *
+     * Devolve un listado dos comuneiros ordeados polo numero de socio.
      * @return
      */
     public static ArrayList<Comuneiro> listaNumero() {

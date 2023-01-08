@@ -6,20 +6,19 @@ package Modelo;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Nesta clase almacenarase toda a informacion, os comuneiros nun treemap pra despois poder ir ordenando e sacando listados.
  * @author Jose PS
  */
 public class Comunidade {
-    private static TreeMap<String, Comuneiro> comuneiros=new TreeMap<>();
+    private static HashMap<String, Comuneiro> comuneiros=new HashMap<>();
     private static ArrayList<String> direccions;
     
-    public static void xeraCorreo (String txt){
-        
-    }
     
     public static void engadeComuneiro(Comuneiro c){
         comuneiros.put(c.getDni(), c);
@@ -37,8 +36,17 @@ public class Comunidade {
         return comuneiros.get(numSocio);
     }
 
+    /**
+     * Recibe un nome por parametro e devolve un arraylist cos comuneiros que se chamen asi.
+     * @param nome
+     * @return 
+     */
     public static ArrayList<Comuneiro> buscaNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista=new ArrayList<>();
+        comuneiros.values().stream().filter(c -> (c.getNome().toLowerCase().equals(nome.toLowerCase()))).forEachOrdered(c -> {
+            lista.add(c);
+        });
+        return lista;
     }
     
     /**
@@ -47,28 +55,36 @@ public class Comunidade {
      * @return 
      */
     public static ArrayList<Comuneiro> buscaAldea(String aldea) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista=new ArrayList<>();
+        comuneiros.values().stream().filter(c -> (c.getDir().getAldea().toLowerCase().equals(aldea.toLowerCase()))).forEachOrdered(c -> {
+            lista.add(c);
+        });
+        return lista;
     }
     
     /**
-     * 
+     * Recibe un numero por parametro e devolve os comuneiros que coincidan con ese numero.
      * @param numero
      * @return 
      */
-    public static ArrayList<Comuneiro> buscaNumero(String numero) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static ArrayList<Comuneiro> buscaNumero(int numero) {
+        ArrayList<Comuneiro> lista=new ArrayList<>();
+        comuneiros.values().stream().filter(c -> (c.getNumSocio()==numero)).forEachOrdered(c -> {
+            lista.add(c);
+        });
+        return lista;
     }
 
     /**
-     * 
+     * Devolve un listado dos comuneiros ordenados polo nome.
      * @return 
      */
     public static ArrayList<Comuneiro> listaNome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new ArrayList<>();
     }
     
     /**
-     * 
+     * Devolve un listado dos comuneiros ordeados pola aldea.
      * @return 
      */
     public static ArrayList<Comuneiro> listaAldea() {
@@ -76,7 +92,7 @@ public class Comunidade {
     }
     
     /**
-     * 
+     * Devolve un listado dos comuneiros ordeados polo numero de socio.
      * @return 
      */
     public static ArrayList<Comuneiro> listaNumero() {

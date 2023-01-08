@@ -109,7 +109,7 @@ public class MainController implements Initializable {
                 case 3 ->
                     busqueda = Comunidade.buscaAldea(busca.getText());
                 case 4 ->
-                    busqueda = Comunidade.buscaNumero(busca.getText());
+                    busqueda = Comunidade.buscaNumero(Integer.parseInt(busca.getText()));
             }
         }
 
