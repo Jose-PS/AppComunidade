@@ -84,7 +84,7 @@ public class FormularioController implements Initializable {
         Comuneiro c=new Comuneiro(nome.getText(), apelidos.getText(), dni.getText(), d, telefono.getText(), email.getText());
         Comunidade.engadeComuneiro(c);
         if(MainFX.isConnected()){
-            BBDDCom.insertComuneiro(c, MainFX.getCon());
+            BBDDCom.insertComuneiro(c);
         }
     }
     

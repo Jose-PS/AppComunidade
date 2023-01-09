@@ -9,14 +9,14 @@ package Modelo;
  * @author Jose PS
  */
 public class Comuneiro {
-    private int numSocio=0;
+    private int numSocio;
     private String nome;
     private String apelidos;
     private String dni;
     private Direccion dir;
-    private String info="";
-    private String telefono="";
-    private String mail="";
+    private String info;
+    private String telefono;
+    private String mail;
 
     /*
     *Aqui defino varios constructores pra crear o obxeto de distintas formas.
@@ -26,7 +26,6 @@ public class Comuneiro {
         this.apelidos = apelidos;
         this.dni = dni;
         this.dir = dir;
-        numSocio++;
     }
 
     public Comuneiro(String nome, String apelidos, String dni, Direccion dir, String telefono) {
@@ -35,7 +34,6 @@ public class Comuneiro {
         this.dni = dni;
         this.dir = dir;
         this.telefono = telefono;
-        numSocio++;
     }
 
     public Comuneiro(String nome, String apelidos, String dni, Direccion dir, String telefono, String mail) {
@@ -45,8 +43,20 @@ public class Comuneiro {
         this.dir = dir;
         this.telefono = telefono;
         this.mail = mail;
-        numSocio++;
     }
+
+    public Comuneiro(int numSocio, String nome, String apelidos, String dni, Direccion dir, String info, String telefono, String mail) {
+        this.numSocio = numSocio;
+        this.nome = nome;
+        this.apelidos = apelidos;
+        this.dni = dni;
+        this.dir = dir;
+        this.info = info;
+        this.telefono = telefono;
+        this.mail = mail;
+    }
+    
+    
 
     public int getNumSocio() {
         return numSocio;

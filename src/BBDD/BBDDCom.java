@@ -6,6 +6,7 @@ package BBDD;
 
 import Modelo.Comuneiro;
 import Modelo.Direccion;
+import Vista.MainFX;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,32 +22,27 @@ import org.mariadb.jdbc.Connection;
  */
 public class BBDDCom {
 
+    private static final Connection con = MainFX.getCon();
     private static final String insert = "INSERT INTO comuneiros (NOME, APELIDOS, DNI, TELEFONO, MAIL) VALUES (?, ?, ?, ?, ?)";
     private static final String insertDir = "INSERT INTO direccion (NUMSOCIO, RUA, PROVINCIA, LOCALIDADE, ALDEA, NUMERO, CP ) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String delete = "DELETE FROM comuneiros, direccions WHERE ID = ?";
-    private static final String getByAldea = "SELECT * FROM comuneiros WHERE ALDEA = ?";
-    private static final String getByNome = "SELECT * FROM comuneiros WHERE NOME = ?";
-    private static final String getByDni = "SELECT * FROM comuneiros WHERE DNI = ?";
-    private static final String getByApelido = "SELECT * FROM comuneiros WHERE APELIDOS LIKE ?";
-    private static final String listByApelido = "SELECT * FROM comuneiros ORDER BY APELIDOS";
-    private static final String listByAldea = "SELECT * FROM comuneiros ORDER BY ALDEA";
-    private static final String listByNome = "SELECT * FROM comuneiros ORDER BY NOME";
+    private static final String getByAldea = "";
+    private static final String getByNome = "";
+    private static final String getByDni = "";
+    private static final String getByApelido = "";
+    private static final String listByApelido = "";
+    private static final String listByAldea = "";
+    private static final String listByNome = "";
     private static final String update = "";
 
     /**
      * Con este metodo insertamos comuneiros na base de datos, devolve o numero
      * que se lle asocie ou -1 se falla
      *
-     * @param nome
-     * @param apelidos
-     * @param dni
-     * @param dir
-     * @param telefono
-     * @param mail
-     * @param con
+     * @param c
      * @return
      */
-    public static int insertComuneiro(Comuneiro c, Connection con) {
+    public static int insertComuneiro(Comuneiro c) {
         int numero = -1;
         String getNum = "SELECT NUMSOCIO FROM comuneiros WHERE DNI=?";
         try ( PreparedStatement ins = con.prepareStatement(insert)) {
@@ -64,11 +60,10 @@ public class BBDDCom {
                 }
                 c.setNumSocio(numero);
             }
-            insertDireccion(c, con);
+            insertDireccion(c);
         } catch (SQLException ex) {
             Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ;
         return numero;
     }
 
@@ -76,17 +71,10 @@ public class BBDDCom {
      * Este metodo inserta a direccion co id de cada comuneiro na taboa de
      * direccions.
      *
-     * @param id
-     * @param rua
-     * @param provincia
-     * @param localidade
-     * @param aldea
-     * @param numero
-     * @param cp
-     * @param con
+     * @param c
      * @return
      */
-    public static int insertDireccion(Comuneiro c, Connection con) {
+    public static int insertDireccion(Comuneiro c) {
         Direccion d = c.getDir();
         try ( PreparedStatement ins = con.prepareStatement(insertDir)) {
             ins.setInt(1, c.getNumSocio());
@@ -104,53 +92,139 @@ public class BBDDCom {
     }
 
     /**
-     * Recibe un nome por parametro e devolve un arraylist cos comuneiros que se chamen asi.
+     * Recibe un nome por parametro e devolve un arraylist cos comuneiros que se
+     * chamen asi.
+     *
      * @param nome
      * @return
      */
     public static ArrayList<Comuneiro> buscaNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista = new ArrayList<>();
+        try ( PreparedStatement find = con.prepareStatement(getByNome)) {
+            ResultSet list = find.executeQuery();
+            lista = getComuneirosFromBD(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
     /**
-     * Recibe un String coa aldea e devolve un ArrayList cos comuneiros de esa aldea.
+     * Recibe un String coa aldea e devolve un ArrayList cos comuneiros de esa
+     * aldea.
+     *
      * @param aldea
      * @return
      */
     public static ArrayList<Comuneiro> buscaAldea(String aldea) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista = new ArrayList<>();
+        try ( PreparedStatement find = con.prepareStatement(getByNome)) {
+            ResultSet list = find.executeQuery();
+            lista = getComuneirosFromBD(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
     /**
-     * Recibe un numero por parametro e devolve os comuneiros que coincidan con ese numero.
+     * Recibe un numero por parametro e devolve os comuneiros que coincidan con
+     * ese numero.
+     *
      * @param numero
      * @return
      */
     public static ArrayList<Comuneiro> buscaNumero(String numero) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista = new ArrayList<>();
+        try ( PreparedStatement find = con.prepareStatement(getByNome)) {
+            ResultSet list = find.executeQuery();
+            lista = getComuneirosFromBD(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
     /**
      * Devolve un listado dos comuneiros ordenados polo nome.
+     *
      * @return
      */
     public static ArrayList<Comuneiro> listaNome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista = new ArrayList<>();
+        try ( PreparedStatement find = con.prepareStatement(getByNome)) {
+            ResultSet list = find.executeQuery();
+            lista = getComuneirosFromBD(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
     /**
      * Devolve un listado dos comuneiros ordeados pola aldea.
+     *
      * @return
      */
     public static ArrayList<Comuneiro> listaAldea() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista = new ArrayList<>();
+        try ( PreparedStatement find = con.prepareStatement(getByNome)) {
+            ResultSet list = find.executeQuery();
+            lista = getComuneirosFromBD(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
 
     /**
      * Devolve un listado dos comuneiros ordeados polo numero de socio.
+     *
      * @return
      */
     public static ArrayList<Comuneiro> listaNumero() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista = new ArrayList<>();
+        try ( PreparedStatement find = con.prepareStatement(getByNome)) {
+            ResultSet list = find.executeQuery();
+            lista = getComuneirosFromBD(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
     }
+
+    /**
+     * Recibe o resultset da consulta e mete os resultados nun arraylist, serve
+     * tanto para os metodos de busqueda como para os de listar.
+     *
+     * @param list
+     * @return
+     */
+    private static ArrayList<Comuneiro> getComuneirosFromBD(ResultSet list) {
+        ArrayList<Comuneiro> lista = new ArrayList<>();
+        try {
+            while (list.next()) {
+                Comuneiro c = new Comuneiro(
+                        list.getInt("NUMSOCIO"),
+                        list.getString("NOME"),
+                        list.getString("APELIDOS"),
+                        list.getString("DNI"),
+                        new Direccion(
+                                list.getString("RUA"),
+                                list.getString("PROVINCIA"),
+                                list.getString("LOCALIDADE"),
+                                list.getString("ALDEA"),
+                                list.getString("NUMERO"),
+                                list.getString("CP")),
+                        list.getString("INFO"),
+                        list.getString("TELEFONO"),
+                        list.getString("MAIL"));
+                lista.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
+    }
+
 }
