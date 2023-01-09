@@ -7,9 +7,7 @@ package Modelo;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Nesta clase almacenarase toda a informacion, os comuneiros nun treemap pra despois poder ir ordenando e sacando listados.
@@ -80,7 +78,11 @@ public class Comunidade {
      * @return 
      */
     public static ArrayList<Comuneiro> listaNome() {
-        return new ArrayList<>();
+        ArrayList<Comuneiro> lista= new ArrayList<>(comuneiros.values());
+        Collections.sort(lista, (Comuneiro c1, Comuneiro c2)-> {
+            return c1.getNome().toLowerCase().compareTo(c2.getNome().toLowerCase());
+        });
+        return lista;
     }
     
     /**
@@ -88,7 +90,11 @@ public class Comunidade {
      * @return 
      */
     public static ArrayList<Comuneiro> listaAldea() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista= new ArrayList<>(comuneiros.values());
+        Collections.sort(lista, (Comuneiro c1, Comuneiro c2)-> {
+            return c1.getDir().getAldea().toLowerCase().compareTo(c2.getDir().getAldea().toLowerCase());
+        });
+        return lista;
     }
     
     /**
@@ -96,7 +102,13 @@ public class Comunidade {
      * @return 
      */
     public static ArrayList<Comuneiro> listaNumero() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Comuneiro> lista= new ArrayList<>(comuneiros.values());
+        Collections.sort(lista, (Comuneiro c1, Comuneiro c2)-> {
+            if(c1.getNumSocio()-c2.getNumSocio()<0)return -1;
+            else if(c1.getNumSocio()-c2.getNumSocio()>0)return 1;
+            else return 0;
+        });
+        return lista;
     }
     
 }

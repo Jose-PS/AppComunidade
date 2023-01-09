@@ -25,14 +25,14 @@ public class BBDDCom {
     private static final Connection con = MainFX.getCon();
     private static final String insert = "INSERT INTO comuneiros (NOME, APELIDOS, DNI, TELEFONO, MAIL) VALUES (?, ?, ?, ?, ?)";
     private static final String insertDir = "INSERT INTO direccion (NUMSOCIO, RUA, PROVINCIA, LOCALIDADE, ALDEA, NUMERO, CP ) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    private static final String delete = "DELETE FROM comuneiros, direccions WHERE ID = ?";
-    private static final String getByAldea = "";
-    private static final String getByNome = "";
-    private static final String getByDni = "";
-    private static final String getByApelido = "";
-    private static final String listByApelido = "";
-    private static final String listByAldea = "";
-    private static final String listByNome = "";
+    private static final String delete = "DELETE FROM comuneiros, direccions WHERE NUMSOCIO = ?";
+    private static final String getByAldea = "SELECT * FROM comuneiros c left JOIN direccion d ON c.NUMSOCIO=d.NUMSOCIO WHERE aldea LIKE ?";
+    private static final String getByNome = "SELECT * FROM comuneiros c left JOIN direccion d ON c.NUMSOCIO=d.NUMSOCIO WHERE nome LIKE ?";
+    private static final String getByDni = "SELECT * FROM comuneiros c left JOIN direccion d ON c.NUMSOCIO=d.NUMSOCIO WHERE dni LIKE ?";
+    private static final String getByApelido = "SELECT * FROM comuneiros c left JOIN direccion d ON c.NUMSOCIO=d.NUMSOCIO WHERE apelido LIKE ?";
+    private static final String listByApelido = "SELECT * FROM comuneiros c left JOIN direccion d ON c.NUMSOCIO=d.NUMSOCIO ORDER BY apelido";
+    private static final String listByAldea = "SELECT * FROM comuneiros c left JOIN direccion d ON c.NUMSOCIO=d.NUMSOCIO ORDER BY aldea";
+    private static final String listByNome = "SELECT * FROM comuneiros c left JOIN direccion d ON c.NUMSOCIO=d.NUMSOCIO ORDER BY nome";
     private static final String update = "";
 
     /**
