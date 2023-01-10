@@ -17,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import java.sql.*;
+import javafx.event.EventHandler;
 
 /**
  * FXML Controller class
@@ -35,27 +36,34 @@ public class AxustesController implements Initializable {
     private TextField ruta;
     @FXML
     private Button explorador;
-
-    File arquivo;
+    private File arquivo;
     @FXML
     private Label avisos;
-
+    private static String filename;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        explorador.setOnAction((ActionEvent event) -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Buscar Arquivo");
-            fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("Todo", "*.*"),
-                    new FileChooser.ExtensionFilter("DAT", "*.dat"),
-                    new FileChooser.ExtensionFilter("CSV", "*.csv")
-            );
-
-            arquivo = fileChooser.showOpenDialog(null);
-            ruta.setText(arquivo.getAbsolutePath());
+        explorador.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Buscar Arquivo");
+                fileChooser.getExtensionFilters().addAll(
+                        new FileChooser.ExtensionFilter("Todo", "*.*"),
+                        new FileChooser.ExtensionFilter("DAT", "*.dat"),
+                        new FileChooser.ExtensionFilter("CSV", "*.csv")
+                );
+                arquivo = fileChooser.showOpenDialog(null);
+                try{
+                ruta.setText(arquivo.getAbsolutePath());
+                MainFX.setFile(true);
+                filename = ruta.getText();
+                }catch(NullPointerException e){    
+                }
+            }
         });
        
     }
@@ -108,5 +116,18 @@ public class AxustesController implements Initializable {
             MainFX.setConnected(false);
         } 
     }
+    
+    
+    /**
+     * Devolve a ruta do arquivo que se vai usar pra gardar/cargar datos.
+     * @return 
+     */
+    public static String getRuta() {
+        return filename;
+    }
+
+
+    
+    
 
 }

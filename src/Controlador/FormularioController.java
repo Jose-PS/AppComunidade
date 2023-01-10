@@ -4,7 +4,8 @@
  */
 package Controlador;
 
-import BBDD.BBDDCom;
+import Datos.ComDB;
+import Datos.ComFile;
 import Modelo.Comuneiro;
 import Modelo.Comunidade;
 import Modelo.Direccion;
@@ -14,14 +15,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.scene.web.WebView;
-import javafx.stage.Popup;
 
 /**
  * FXML Controller class
@@ -84,7 +78,10 @@ public class FormularioController implements Initializable {
         Comuneiro c=new Comuneiro(nome.getText(), apelidos.getText(), dni.getText(), d, telefono.getText(), email.getText());
         Comunidade.engadeComuneiro(c);
         if(MainFX.isConnected()){
-            BBDDCom.insertComuneiro(c);
+            ComDB.insertComuneiro(c);
+        } 
+        if (MainFX.isFile()){
+            
         }
     }
     

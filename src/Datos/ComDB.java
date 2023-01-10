@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package BBDD;
+package Datos;
 
 import Modelo.Comuneiro;
 import Modelo.Direccion;
@@ -20,7 +20,7 @@ import org.mariadb.jdbc.Connection;
  *
  * @author DAW
  */
-public class BBDDCom {
+public class ComDB {
 
     private static final Connection con = MainFX.getCon();
     private static final String insert = "INSERT INTO comuneiros (NOME, APELIDOS, DNI, TELEFONO, MAIL) VALUES (?, ?, ?, ?, ?)";
@@ -62,7 +62,7 @@ public class BBDDCom {
             }
             insertDireccion(c);
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return numero;
     }
@@ -86,7 +86,7 @@ public class BBDDCom {
             ins.setString(7, d.getCp());
             return ins.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return -1;
     }
@@ -104,7 +104,7 @@ public class BBDDCom {
             ResultSet list = find.executeQuery();
             lista = getComuneirosFromBD(list);
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }
@@ -122,7 +122,7 @@ public class BBDDCom {
             ResultSet list = find.executeQuery();
             lista = getComuneirosFromBD(list);
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }
@@ -140,7 +140,7 @@ public class BBDDCom {
             ResultSet list = find.executeQuery();
             lista = getComuneirosFromBD(list);
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }
@@ -156,7 +156,7 @@ public class BBDDCom {
             ResultSet list = find.executeQuery();
             lista = getComuneirosFromBD(list);
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }
@@ -172,7 +172,7 @@ public class BBDDCom {
             ResultSet list = find.executeQuery();
             lista = getComuneirosFromBD(list);
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }
@@ -188,7 +188,7 @@ public class BBDDCom {
             ResultSet list = find.executeQuery();
             lista = getComuneirosFromBD(list);
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }
@@ -222,7 +222,7 @@ public class BBDDCom {
                 lista.add(c);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(BBDDCom.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }

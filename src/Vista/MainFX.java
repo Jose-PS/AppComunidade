@@ -4,7 +4,7 @@
  */
 package Vista;
 
-import BBDD.ConnectionDB;
+import Datos.ConnectionDB;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,15 +17,12 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import org.mariadb.jdbc.Connection;
 
@@ -40,6 +37,7 @@ public class MainFX extends Application {
     private static Pane stPane;
     private static Connection con;
     private static boolean connected=false;
+    private static boolean file=false;
 
     
 
@@ -124,6 +122,15 @@ public class MainFX extends Application {
     public static void setConnected(boolean connected) {
         MainFX.connected = connected;
     }
+
+    public static boolean isFile() {
+        return file;
+    }
+
+    public static void setFile(boolean file) {
+        MainFX.file = file;
+    }
+    
 
     public static Connection getCon() {
         return con;

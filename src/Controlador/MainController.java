@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import BBDD.BBDDCom;
+import Datos.ComDB;
 import Modelo.Comuneiro;
 import Modelo.Comunidade;
 import Vista.MainFX;
@@ -96,13 +96,12 @@ public class MainController implements Initializable {
         if (MainFX.isConnected()) {
             switch (tipoc) {
                 case 2 ->
-                    busqueda = BBDDCom.buscaNome(busca.getText());
+                    busqueda = ComDB.buscaNome(busca.getText());
                 case 3 ->
-                    busqueda = BBDDCom.buscaAldea(busca.getText());
+                    busqueda = ComDB.buscaAldea(busca.getText());
                 case 4 ->
-                    busqueda = BBDDCom.buscaNumero(busca.getText());
+                    busqueda = ComDB.buscaNumero(busca.getText());
             }
-
         } else {
             switch (tipoc) {
                 case 2 ->
@@ -113,7 +112,6 @@ public class MainController implements Initializable {
                     busqueda = Comunidade.buscaNumero(Integer.parseInt(busca.getText()));
             }
         }
-
     }
 
     /**
@@ -134,11 +132,11 @@ public class MainController implements Initializable {
         if (MainFX.isConnected()) {
             switch (tipoc) {
                 case 2 ->
-                    lista = BBDDCom.listaNome();
+                    lista = ComDB.listaNome();
                 case 3 ->
-                    lista = BBDDCom.listaAldea();
+                    lista = ComDB.listaAldea();
                 case 4 ->
-                    lista = BBDDCom.listaNumero();
+                    lista = ComDB.listaNumero();
             }
         } else {
             switch (tipoc) {
@@ -150,7 +148,6 @@ public class MainController implements Initializable {
                     lista = Comunidade.listaNumero();
             }
         }
-
     }
 
     /**
